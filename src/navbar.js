@@ -1,4 +1,6 @@
-import './NavBar.css';
+import "./NavBar.css";
+import deliveryBoyImage from "./assets/delivery boy.png";
+import waiterImage from "./assets/waiter.png";
 
 export default function NavBar() {
   return (
@@ -27,19 +29,19 @@ export default function NavBar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0"></ul>
             <div className="me-5" role="search">
-              <button type="button" className="btn btn-outline-secondary me-2">
+              <button type="button" className="btn btn-outline-secondary me-3">
                 <img
                   style={{ verticalAlign: "text-top", marginTop: "1px" }}
-                  src="./delivery boy.png"
+                  src={deliveryBoyImage}
                   width="25rem"
                   alt=""
                 />
-                Delivery
+                &nbsp;Delivery
               </button>
               <button type="button" className="btn btn-warning me-2">
                 <img
                   style={{ verticalAlign: "text-top" }}
-                  src="./assets/waiter.png"
+                  src={waiterImage}
                   width="30rem"
                   alt=""
                 />

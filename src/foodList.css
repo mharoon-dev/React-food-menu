@@ -1,0 +1,118 @@
+.checked {
+    color: orange;
+}
+
+.leftBar {
+    position: fixed !important;
+}
+
+.imgDiv {
+    width: 100%;
+    height: 100%;
+}
+
+.imgDiv img {
+    border-radius: 15px;
+    width: 100%;
+    height: 8rem !important;
+    object-fit: cover !important;
+}
+
+.imgRow {
+    height: 70vh;
+    overflow: hidden !important;
+}
+
+.imgRow:hover {
+    overflow: auto;
+}
+
+.imgRow::-webkit-scrollbar {
+    width: 0px;
+}
+
+
+
+
+@media (max-width: 767px) {
+    .optionsDiv {
+        flex-wrap: nowrap !important;
+        overflow: hidden !important;
+        height: auto !important;
+    }
+
+    .optionsDiv:hover {
+        overflow: auto !important;
+    }
+
+    .card-title {
+        font-size: medium !important;
+    }
+    .card-text {
+        font-size: small !important;
+    }
+    .ratingOfItem {
+        font-size: 11px !important;
+    }
+    .price {
+        font-size: 11px !important;
+    }
+    .options {
+        width: 100%;        
+    }
+    .itemNameDiv {
+        left: 25% !important;
+    }
+
+
+     
+     
+    
+}
+
+.foodImage:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+@media (max-width: 480px) {
+    .card-title {
+        font-size: small !important;
+    }
+    .card-text {
+        font-size: xx-small !important;
+    }
+    .ratingOfItem {
+        font-size: 10px !important;
+    }
+    .price {
+        font-size: 12px !important;
+    }
+
+    .itemNameDiv {
+        left: 40% !important;
+    }
+}
+
+
+
+@media (max-width: 1015px) {
+    #heading {
+        font-size: large;
+    }
+
+    .para {        font-size: 10px !important;
+    }
+
+    .ratingText {
+        font-size: 12px !important;
+    }
+
+    .paraDiv {
+        width: 15rem !important;
+    }
+
+    .divPara {
+        font-size: 12px !important;
+    }
+}
