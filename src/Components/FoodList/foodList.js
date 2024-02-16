@@ -1,44 +1,21 @@
 import "./foodList.css";
-import { useState } from "react";
-import FoodFunction from "./foodFunction.js";
+import FoodFunction from "../FoodFunction/foodFunction.js";
 // images
-import pizzaImage from "./assets/pizza .jpg";
-import bbqImage from "./assets/bbq.jpg";
-import burgerImage from "./assets/burger.jpg";
-import drinksImage from "./assets/drinks.jpg";
-import FoodOptionsFunction from "./foodOptionsFunction.js";
+import pizzaImage from "../../assets/pizza .jpg";
+import bbqImage from "../../assets/bbq.jpg";
+import burgerImage from "../../assets/burger.jpg";
+import drinksImage from "../../assets/drinks.jpg";
+import FoodOptionsFunction from "../FoodOptionsFunction/foodOptionsFunction.js";
+import { useState } from "react";
 
-export default function FoodList() {
+export default function FoodList({ foodListItems, setfoodListItems }) {
+  const [category, setCategory] = useState("all");
+  console.log(category + " =====>>> Category");
+  let myFoodListItems = [...foodListItems];
+  console.log(myFoodListItems);
 
-  // food list
-  let foodList = [
-    {
-      name: "Pizza",
-      desc: "Italian food",
-      image: pizzaImage,
-      price: "$12.99",
-    },
-    {
-      name: "Pizza",
-      desc: "Italian food",
-      image: pizzaImage,
-      price: "$12.99",
-    },
-    {
-      name: "Pizza",
-      desc: "Italian food",
-      image: pizzaImage,
-      price: "$12.99",
-    },
-    {
-      name: "Pizza",
-      desc: "Italian food",
-      image: pizzaImage,
-      price: "$12.99",
-    },
-  ];
-
-  let foodOptions = [
+  // food options array
+  const foodOptions = [
     {
       name: "Pizza",
       image: pizzaImage,
@@ -57,22 +34,24 @@ export default function FoodList() {
     },
   ];
 
-  const [foodItems, setFoodItems] = useState(foodList);
-
-  let filteredFoodList = foodList.filter( ( foodItem ) => {
-    if ( foodItem.name === category ) return foodItem
-  })
-  setFoodItems(filteredFoodList);
+  // filter food list
+  if (category != "all") {
+    myFoodListItems = myFoodListItems.filter((food) => {
+      return food.category === category;
+    });
+    console.log(myFoodListItems);
+  }
 
   return (
     <>
-      <div class="container-fluid">
-        <div class="row">
-          {/* left bar */}
+      <div className="container-fluid">
+        <div className="row">
+          {/* Left bar */}
           <div
             id="leftBar"
             className="col-md-4 col-12 ms-md-4 d-flex flex-column justify-content-center align-items-center"
           >
+            {/* Restaurant information */}
             <div>
               <p
                 className="mb-2 ratingText"
@@ -104,6 +83,7 @@ export default function FoodList() {
               >
                 Address: 6 Yukon Drive Reaford, NC 28376
               </p>
+
               <div
                 className="paraDiv d-flex mx-auto justify-content-between align-items-center"
                 style={{ width: "18rem" }}
@@ -123,19 +103,25 @@ export default function FoodList() {
               </div>
             </div>
 
+            {/* Food options */}
             <div className="container-fluid imgDiv">
               <div className="row imgRow optionsDiv gap-3 gap-md-0 ">
                 {foodOptions.map((food) => (
-                  <FoodOptionsFunction food={food} />
+                  <FoodOptionsFunction
+                    food={food}
+                    category={category}
+                    setCategory={setCategory}
+                  />
                 ))}
               </div>
             </div>
           </div>
 
-          <div class="ms-lg-5 col-7 options">
-            <div class="container-fluid">
-              <div class="row">
-                {foodList.map((foodItem) => (
+          {/* food items display */}
+          <div className="ms-lg-5 col-7 options">
+            <div className="container-fluid">
+              <div className="row">
+                {foodListItems.map((foodItem) => (
                   <FoodFunction foodItem={foodItem} />
                 ))}
               </div>

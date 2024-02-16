@@ -1,9 +1,8 @@
 export default function FoodFunction(foodItem) {
-  console.log(foodItem);
 
   // Check if foodItem and foodItem.foodItem are defined
   if (!foodItem || !foodItem.foodItem) {
-    // Handle the case when data is not available
+    // if data does not avalible!
     return null;
   }
 
