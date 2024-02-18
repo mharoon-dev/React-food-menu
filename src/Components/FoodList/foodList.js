@@ -6,11 +6,10 @@ import bbqImage from "../../assets/bbq.jpg";
 import burgerImage from "../../assets/burger.jpg";
 import drinksImage from "../../assets/drinks.jpg";
 import FoodOptionsFunction from "../FoodOptionsFunction/foodOptionsFunction.js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function FoodList({ foodListItems, setfoodListItems }) {
   const [category, setCategory] = useState("all");
-  console.log(category + " =====>>> Category");
   let myFoodListItems = [...foodListItems];
   console.log(myFoodListItems);
 
@@ -35,12 +34,15 @@ export default function FoodList({ foodListItems, setfoodListItems }) {
   ];
 
   // filter food list
-  if (category != "all") {
-    myFoodListItems = myFoodListItems.filter((food) => {
-      return food.category === category;
-    });
-    console.log(myFoodListItems);
-  }
+  // let filtratedItems = [...myFoodListItems];
+  // if (category != "all") {
+  //   filtratedItems = filtratedItems.filter((food) => {
+  //     return food.category === category;
+  //   });
+  //   console.log(myFoodListItems);
+  // }
+
+  useEffect(() => {}, [category]);
 
   return (
     <>
@@ -67,7 +69,11 @@ export default function FoodList({ foodListItems, setfoodListItems }) {
 
               <h2
                 id="heading"
-                style={{ textAlign: "center", color: "white", fontWeight: 600 }}
+                style={{
+                  textAlign: "center",
+                  color: "white",
+                  fontWeight: 600,
+                }}
               >
                 The Brooklyn Tree
               </h2>
@@ -108,6 +114,7 @@ export default function FoodList({ foodListItems, setfoodListItems }) {
               <div className="row imgRow optionsDiv gap-3 gap-md-0 ">
                 {foodOptions.map((food) => (
                   <FoodOptionsFunction
+                    key={food.name}
                     food={food}
                     category={category}
                     setCategory={setCategory}
@@ -121,9 +128,11 @@ export default function FoodList({ foodListItems, setfoodListItems }) {
           <div className="ms-lg-5 col-7 options">
             <div className="container-fluid">
               <div className="row">
-                {foodListItems.map((foodItem) => (
-                  <FoodFunction foodItem={foodItem} />
-                ))}
+                {foodListItems
+                  .filter((food) => food.category === category)
+                  .map((foodItem) => (
+                    <FoodFunction foodItem={foodItem} />
+                  ))}
               </div>
             </div>
           </div>

@@ -1,14 +1,11 @@
 export default function FoodOptionsFunction({ food, category, setCategory }) {
-  let Mycategory = category;
   const { name, image } = food;
 
   return (
     <>
       <div
         onClick={() => {
-          Mycategory = name;
-          setCategory(Mycategory);
-          console.log(Mycategory);
+          setCategory(name.toLowerCase());
         }}
         className="foodImage col-md-12 col-4 mt-3 p-0 d-flex justify-content-center align-items-center"
         style={{ position: "relative", height: "fit-content" }}

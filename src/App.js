@@ -17,6 +17,7 @@ function App() {
       image: pizzaImage,
       price: "$12.99",
       category: "pizza",
+      id: Date.now()
     },
     {
       name: "BBQ",
@@ -24,6 +25,7 @@ function App() {
       image: bbqImage,
       price: "$15.78",
       category: "bbq",
+      id: Date.now()
     },
     {
       name: "Burger",
@@ -31,6 +33,7 @@ function App() {
       image: burgerImage,
       price: "$10.10",
       category: "burger",
+      id: Date.now()
     },
     {
       name: "Soda",
@@ -38,15 +41,16 @@ function App() {
       image: drinksImage,
       price: "$5.99",
       category: "drinks",
+      id: Date.now()
     },
   ];
   const [foodListItems, setfoodListItems] = useState(foodList);
   return (
     <>
       <NavBar />
-      <FoodList foodListItems={foodListItems} setfoodList={setfoodListItems} />
+      <FoodList foodListItems={foodListItems} setfoodListItems={setfoodListItems} />
     </>
   );
 }
-
 export default App;
+

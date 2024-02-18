@@ -1,13 +1,14 @@
-export default function FoodFunction(foodItem) {
+export default function FoodFunction({ foodItem }) {
 
   // Check if foodItem and foodItem.foodItem are defined
-  if (!foodItem || !foodItem.foodItem) {
+  if (!foodItem) {
     // if data does not avalible!
     return null;
   }
 
   return (
     <>
+      {}
       <div className="col-lg-6 mt-4 flex-warp col-12">
         <div
           className="card mb-3 w-100"
@@ -21,9 +22,9 @@ export default function FoodFunction(foodItem) {
           <div className="row g-0">
             <div className="col-4  d-flex justify-content-center align-items-center">
               {/* Check if foodItem.foodItem.image is defined */}
-              {foodItem.foodItem.image && (
+              {foodItem.image && (
                 <img
-                  src={foodItem.foodItem.image}
+                  src={foodItem.image}
                   style={{
                     height: "100%",
                     objectFit: "cover",
@@ -36,11 +37,11 @@ export default function FoodFunction(foodItem) {
             <div className="col-8">
               <div className="card-body p-0 ps-1 pt-0">
                 {/* food name */}
-                <h5 className="card-title mb-0">{foodItem.foodItem.name}</h5>
+                <h5 className="card-title mb-0">{foodItem.name}</h5>
 
                 {/* food detail */}
                 <p className="card-text mb-1 mt-1" style={{ fontSize: "10px" }}>
-                  {foodItem.foodItem.desc}
+                  {foodItem.desc}
                 </p>
 
                 {/* food rating */}
@@ -61,7 +62,7 @@ export default function FoodFunction(foodItem) {
                     className="text-body-secondary mt-1"
                     style={{ color: "white !important" }}
                   >
-                    {foodItem.foodItem.price}
+                    {foodItem.price}
                   </small>
                 </p>
               </div>
