@@ -128,11 +128,13 @@ export default function FoodList({ foodListItems, setfoodListItems }) {
           <div className="ms-lg-5 col-7 options">
             <div className="container-fluid">
               <div className="row">
-                {foodListItems
-                  .filter((food) => food.category === category)
-                  .map((foodItem) => (
-                    <FoodFunction foodItem={foodItem} />
-                  ))}
+                {category == "all"
+                  ? foodListItems.map((foodItem) => (
+                      <FoodFunction foodItem={foodItem} />
+                    ))
+                  : foodListItems
+                      .filter((food) => food.category === category)
+                      .map((foodItem) => <FoodFunction foodItem={foodItem} />)}
               </div>
             </div>
           </div>
